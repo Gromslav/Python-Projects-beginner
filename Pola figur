@@ -1,0 +1,72 @@
+#Credits: Daniel Baldys
+#Program do obliczania pola figur do wyboru
+#koło, trójkąt, prostokąt
+#gdy kwadrat, to tylko jedna wartość
+#Pi z modułu
+#dodaj podstawowe zabezpieczenia
+#info na koniec
+#"Pole figury <nazwa> o podanych wartościach wynosi <pole
+import math as m
+def kolo (r):
+    return m.pi*(r*r)
+def trojkat (a,h):
+    return a*h/2
+def prostokat (a,b):
+    return a*b
+print("Witaj w programie obliczającym pola figur.")
+try:
+    figura = int(input("Która figura Cię interesuje? Wpisz '1' dla koła. '2' dla trójkąta, '3' dla prostokąta. Który numer?: "))
+except ValueError:
+    figura = 4
+if figura == 1:
+    print("Wybrano koło")
+    coto = "koło"
+    try:
+        r = float(input("Podaj promień koła: "))
+        if r < 0:
+            print("Promień nie może być mniejszy od 0. Program zakończył działanie")
+        else:
+            print("Pole figury '" + coto + "' o podanych wartościach wynosi " + str(round(kolo(r), 2)))
+    except ValueError:
+        print("Nie podano poprawnego numeru. Program zakończył działanie")
+elif figura == 2:
+    print("Wybrano trójkąt")
+    coto = "trójkąt"
+    try:
+        a = float(input("Podaj szerokość podstawy trójkąta: "))
+        if a < 0:
+            print("Wartość nie może być mniejsza od 0. Program zakończył działanie")
+        h = float(input("Podaj wysokość trójkąta: "))
+        if h < 0:
+            print("Wartość nie może być mniejsza od 0. Program zakończył działanie")
+        else:
+            if float(trojkat(a, h)).is_integer():
+                print("Pole figury '" + coto + "' o podanych wartościach wynosi " + str(int(trojkat(a, h))))
+            else:
+                print("Pole figury '" + coto + "' o podanych wartościach wynosi " + str(round(trojkat(a, h), 2)))
+    except ValueError:
+        print("Nie podano poprawnego numeru. Program zakończył działanie")
+elif figura == 3:
+    print("Wybrano prostokąt")
+    coto = "prostokąt"
+    try:
+        a = float(input("Podaj pierwszy bok prostokąta "))
+        if a < 0:
+            print("Wartość nie może być mniejsza od 0. Program zakończył działanie")
+        b = float(input("Podaj drugi bok prostokąta "))
+        if b < 0:
+            print("Wartość nie może być mniejsza od 0. Program zakończył działanie")
+        if a == b:
+            if float(prostokat(a, b)).is_integer():
+                print("Pole kwadratu o podanych wartościach wynosi " + str(int(prostokat(a, b))))
+            else:
+                print("Pole kwadratu o podanych wartościach wynosi " + str(round(prostokat(a, b), 2)))
+        else:
+            if float(prostokat(a, b)).is_integer():
+                print("Pole figury '" + coto + "' o podanych wartościach wynosi " + str(int(prostokat(a, b))))
+            else:
+                print("Pole figury '" + coto + "' o podanych wartościach wynosi " + str(round(prostokat(a, b), 2)))
+    except ValueError:
+        print("Nie podano poprawnego numeru. Program zakończył działanie")
+else:
+    print("Nie podano poprawnego numeru. Program zakończył działanie")
