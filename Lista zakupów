@@ -1,0 +1,37 @@
+#Credits: Daniel Baldys
+#1. poproś o wpisanie kolejno produktów do zakupu, oddzielając je przecinkiem
+#2. podziel listę na poszczególne produkty i zapisz bez powtórzeń
+#3. pętla - poproś o wpisanie ceny produktów z listy
+#gdy błąd - ustaw cenę na zero
+#4. zapisz wyniki w formie słownika, pary: PRODUKT: cena
+#5. sprawdź czy użytkownik jest w stanie to kupić, ma 100 zł
+
+print("Witaj w programie do pomocy w zakupach.\n")
+#zmienne
+lista = set()
+ListaCena = dict()
+cena = 0
+CenaAll = 0
+numer = 0
+#komunikat
+zakupy = input("Podaj produkty do zakupu, oddzielając je  samym przecinkiem, bez spacji. (Przykładowo: miód,mleko). \nJakie są Twoje produkty? Wypisz je poniżej:\n")
+zakupy=zakupy.split(",")
+lista = set(zakupy)
+zakupy = list(lista)
+#pytaj o cenę i przypisz
+for i in range(len(zakupy)):
+    try:
+        cena = float(input("Ile kosztuje " + zakupy[numer] + "? "))
+    except ValueError:
+        cena = 0
+    if cena <= 0:
+            cena = 0
+            print("Nie ma nic za darmo!\nUstawiam cenę na ZERO")
+    ListaCena.update({zakupy[numer].upper() : cena})
+    numer = numer + 1
+    CenaAll = CenaAll + cena
+print("\nTwoja lista zakupów to: \n" + str(ListaCena))
+if CenaAll > 100:
+    print("Niestety nie stać Cię na wszystkie produkty. Idź zarobić, bądź zrezygnuj z czegoś")
+else:
+    print("Masz wystarczające środki do zrobienia tych zakupów.\n")
