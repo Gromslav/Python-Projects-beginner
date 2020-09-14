@@ -6,7 +6,7 @@
 #gdy wpisano inny string, podaj ile liczb wpisano i komunikat
 #“Podałeś <N> liczb. Dalej się nie bawię”
 
-print("Witaj w wyświetlającym tablicę z podanych liczb. Podaj dowolną liczbę, którą program doda do tablicy.")
+print("Witaj w programie wyświetlającym tablicę z podanych liczb. Podaj dowolną liczbę, którą program doda do tablicy.\nWpisz 'exit', aby wyświetlić zapisane liczby.")
 x = 0
 numer = 0
 numbers = []
@@ -24,7 +24,7 @@ while x >= 0:
         except ValueError:
             a=str(a)
             if (a == "exit"):
-                print("Zakończono rejestrowanie liczb")
+                print("Zakończono rejestrowanie liczb. Są to kolejno: ")
                 #print(numbers)
                 for i in range(len(numbers)):
                     print(numbers[numer])
