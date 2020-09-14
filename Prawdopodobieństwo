@@ -1,0 +1,39 @@
+#Credits: Daniel Baldys
+#zaimportuj moduł random, wygeneruj N liczbę losowych wartości od 0 do 1
+#następnie uszereguj je od najmniejszej do największej
+#zapisz wartości do pliku 'percent.txt', każdą w osobnej linijce
+#
+import random
+print("Witaj w programie do generowania losowych liczb w procentach\n")
+
+#zmienne
+ile = 0
+ile_plik = 0
+losowa = 0
+lista = list()
+numer = 0
+#start
+try:
+    ile = int(input("Ile losowych wartości ma zostać wygenerowanych? Podaj liczbę: "))
+except ValueError:
+    print("Podana wartość musi być liczbą całkowitą. Uruchom program ponownie")
+ile_plik = ile
+#generowanie liczb, pętla
+for i in range(ile):
+    losowa = round(random.random(), 5)
+    lista.append(losowa)
+    ile = ile - 1
+#sortowanie
+lista=sorted(lista)
+#zapisywanie wartości + procenty
+with open("percent.txt", "w") as f:
+    for i in range(len(lista)):
+        f.write(str(lista[numer]))
+        f.write(" ; ")
+        f.write(str(int(float(lista[numer])*100)) + "%\n")
+        numer = numer + 1
+#spradzanie
+print("Losowe liczby zostały wygenerowane i zapisane w pliku")
+#with open("percent.txt", "r") as f:
+#    for i in range(ile_plik):
+#        print(f.readline())
