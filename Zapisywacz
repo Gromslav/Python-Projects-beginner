@@ -1,0 +1,38 @@
+#Credits: Daniel Baldys
+#program, który działa przez podaną liczbę sekund
+#co sekundę ma pobierać aktualny czas
+#zapisuje ten czas w 'logs.txt'
+#w formacie N | DD Mon YYYY | hh:mm:ss | timestamp
+
+print("Witaj w programie zapisującym czas. Program pobiera aktualny czas co sekundę i zapisuje go do pliku.\n")
+import time as t
+import datetime as dt
+
+#zmienne
+sek = 0
+now = 0
+unix = 0
+try:
+    sek = int(input("Ile sekund ma działać program? "))
+    #print as N | DD Mon YYYY | hh:mm:ss | timestamp
+    #pobieram i zapisuję czas
+    with open("logs.txt", "w") as f:
+        for i in range(0, sek):
+            print(str(i + 1))
+            now = t.localtime()
+            unix = t.time()
+            f.write(str(i))
+            f.write(" | ")
+            f.write(str((dt.date.today().day)))
+            f.write(" ")
+            f.write(str(dt.date.today().month))
+            f.write(" ")
+            f.write(str(dt.date.today().year))
+            f.write(" | ")
+            f.write(t.strftime("%H : %M : %S", now))
+            f.write(" | ")
+            f.write(str(unix) + "\n")
+            t.sleep(1)
+    print("\nProgram zakończył działanie. Plik został zapisany")
+except ValueError:
+    print("Podaj liczbę całkowitą. Program przestał działać")
