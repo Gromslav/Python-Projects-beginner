@@ -33,5 +33,7 @@ for i in range(len(zakupy)):
 print("\nTwoja lista zakupów to: \n" + str(ListaCena))
 if CenaAll > 100:
     print("Niestety nie stać Cię na wszystkie produkty. Idź zarobić, bądź zrezygnuj z czegoś")
+elif CenaAll == 0:
+    print("Żartowniś z Ciebie ;)")
 else:
     print("Masz wystarczające środki do zrobienia tych zakupów.\n")
