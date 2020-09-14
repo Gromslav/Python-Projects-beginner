@@ -1,0 +1,43 @@
+#Credits: Daniel Baldys
+#proś o liczby cały czas
+#dodawaj je do tablicy 'numbers'
+#przerwij, gdy wpisano 'exit'
+#wtedy wyświetl 'numbers' linijka po linijce
+#gdy wpisano inny string, podaj ile liczb wpisano i komunikat
+#“Podałeś <N> liczb. Dalej się nie bawię”
+
+print("Witaj w wyświetlającym tablicę z podanych liczb. Podaj dowolną liczbę, którą program doda do tablicy.")
+x = 0
+numer = 0
+numbers = []
+while x >= 0:
+    a = input("Jaka liczba? ")
+    try:
+        a=int(a)
+        print("Dodano.")
+        numbers.append(a)
+    except:
+        try:
+            a=float(a)
+            print("Dodano.")
+            numbers.append(a)
+        except ValueError:
+            a=str(a)
+            if (a == "exit"):
+                print("Zakończono rejestrowanie liczb")
+                #print(numbers)
+                for i in range(len(numbers)):
+                    print(numbers[numer])
+                    numer = numer + 1
+                break
+            else:
+                if x == 1:
+                    print("​Podałeś " + str(x) + " liczbę. Dalej się nie bawię")
+                    break
+                elif x >= 2 and x <= 4:
+                    print("​Podałeś " + str(x) + " liczby. Dalej się nie bawię")
+                    break
+                else:
+                    print("​Podałeś " + str(x) + " liczb. Dalej się nie bawię")
+                    break
+    x = x + 1
